@@ -617,10 +617,10 @@ def main(cfg):
     if cfg.model.model_type == 'goalMLP':
         if cfg.model.optimizer == 'adam':
             optimizer = torch.optim.Adam(list(model[0].parameters(
-            )) + list(model[1].parameters()), lr=args.learning_rate, weight_decay=1e-4)
+            )) + list(model[1].parameters()), lr=cfg.model.learning_rate, weight_decay=1e-4)
         elif cfg.model.optimizer == 'sgd':
             optimizer = torch.optim.SGD(list(model[0].parameters(
-            )) + list(model[1].parameters()), lr=args.learning_rate, momentum=0.9, weight_decay=1e-4)
+            )) + list(model[1].parameters()), lr=cfg.model.learning_rate, momentum=0.9, weight_decay=1e-4)
     else:
         optimizer = get_optimizer(cfg.model, model)
 

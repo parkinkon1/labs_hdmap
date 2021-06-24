@@ -98,7 +98,7 @@ class NusCustomParser(Dataset):
         ego_pose_rotation = ego_pose['rotation']
 
         # 2. Generate map mask
-        map_masks, lanes, map_img = self.static_layer.generate_mask(ego_pose_xy, ego_pose_rotation, sample_token)
+        map_masks, lanes, map_img, map_img_with_lanes = self.static_layer.generate_mask(ego_pose_xy, ego_pose_rotation, sample_token)
 
         # 3. Generate Agent Trajectory
         agent_mask, xy_global = self.agent_layer.generate_mask(
